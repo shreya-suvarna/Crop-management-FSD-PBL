@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login As</title>
+  <link rel="stylesheet" href="select-category.css">
+</head>
+<body>
+  <div class="card">
+    <h1>Login As</h1>
+
+    <div class="category-container">
+      <button class="category-btn farmer-btn" id="farmerBtn">👨‍🌾 Farmer</button>
+      <button class="category-btn industry-btn" id="industryBtn">🏭 Industry</button>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("farmerBtn").addEventListener("click", function() {
+      window.location.href = "farmer-login.html";
+    });
+
+    document.getElementById("industryBtn").addEventListener("click", function() {
+      window.location.href = "industry-login.html";
+    });
+  </script>
+</body>
+</html>
