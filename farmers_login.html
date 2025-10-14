@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Farmer Sign Up & Login</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #e8f5e9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      width: 350px;
+      text-align: center;
+    }
+
+    h2 {
+      color: #2e7d32;
+      margin-bottom: 20px;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    button {
+      width: 100%;
+      background: #43a047;
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background: #388e3c;
+    }
+
+    p {
+      margin-top: 15px;
+      font-size: 14px;
+    }
+
+    a {
+      color: #2e7d32;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .message {
+      color: #1b5e20;
+      background: #c8e6c9;
+      padding: 10px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Message -->
+    <div id="messageBox" class="message"></div>
+
+    <!-- Sign Up Page (Shown First) -->
+    <div id="signupForm">
+      <h2>Sign Up</h2>
+      <input type="text" id="signupPhone" placeholder="Enter Phone Number" required>
+      <input type="password" id="signupPassword" placeholder="Create Password" required>
+      <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+      <button onclick="signUp()">Sign Up</button>
+      <p>Have an account? <a href="#" onclick="toggleForms()">Login</a></p>
+    </div>
+
+    <!-- Login Page (Hidden Initially) -->
+    <div id="loginForm" class="hidden">
+      <h2>Login</h2>
+      <input type="text" id="loginPhone" placeholder="Enter Phone Number" required>
+      <input type="password" id="loginPassword" placeholder="Enter Password" required>
+      <button onclick="login()">Login</button>
+      <p>Don't have an account? <a href="#" onclick="toggleForms()">Sign Up</a></p>
+    </div>
+  </div>
+
+  <script>
+    function toggleForms() {
+      document.getElementById("signupForm").classList.toggle("hidden");
+      document.getElementById("loginForm").classList.toggle("hidden");
+      document.getElementById("messageBox").style.display = "none";
+    }
+
+    function signUp() {
+      const phone = document.getElementById("signupPhone").value;
+      const pass = document.getElementById("signupPassword").value;
+      const confirm = document.getElementById("confirmPassword").value;
+      const messageBox = document.getElementById("messageBox");
+
+      if (phone === "" || pass === "" || confirm === "") {
+        alert("Please fill all fields.");
+        return;
+      }
+
+      if (pass !== confirm) {
+        alert("Passwords do not match!");
+        return;
+      }
+
+      // Simulate account creation
+      messageBox.innerText = "Account created successfully! Please log in.";
+      messageBox.style.display = "block";
+
+      // Switch to login page after 2 seconds
+      setTimeout(() => {
+        document.getElementById("signupForm").classList.add("hidden");
+        document.getElementById("loginForm").classList.remove("hidden");
+        messageBox.style.display = "none";
+      }, 2000);
+    }
+
+    function login() {
+      const phone = document.getElementById("loginPhone").value;
+      const pass = document.getElementById("loginPassword").value;
+
+      if (phone === "" || pass === "") {
+        alert("Please fill all fields.");
+        return;
+      }
+
+      alert("Login successful! (You can redirect to dashboard here)");
+    }
+  </script>
+
+</body>
+</html>
