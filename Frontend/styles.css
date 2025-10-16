@@ -1,0 +1,237 @@
+/* --- styles.css (FINAL VERSION - Supports Index, Login, and Dashboards) --- */
+
+:root {
+    /* Define Color Palette */
+    --primary-color: #38761D; /* Deep Green for branding/actions */
+    --secondary-color: #f7fcf6; 
+    --text-dark: #222222; 
+    --text-light: #555555;
+    --body-frame-color: #f5f5f0; /* The soft, warm off-white background color */
+    --background-color: #ffffff; /* Pure white for card backgrounds */
+    --border-radius-lg: 12px;
+    --border-radius-sm: 6px; 
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif; 
+}
+
+/* 1. Overall Page Background and Setup */
+body {
+    background-color: var(--body-frame-color); /* Soft frame color */
+    color: var(--text-dark);
+    line-height: 1.6;
+    padding: 30px; 
+}
+
+/* 2. Main Content Container (The white/soft-colored central box) */
+.dashboard-container {
+    padding: 50px;
+    max-width: 1300px;
+    margin: 0 auto;
+    
+    /* Using the soft color to match the illustration background on all pages */
+    background-color: var(--body-frame-color); 
+    
+    border-radius: var(--border-radius-lg); 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* === Header/Navbar Styling === */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 30px; 
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+    flex-grow: 1; 
+    margin-left: 50px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--text-light);
+    font-weight: 500;
+    padding: 5px 0;
+}
+
+.auth-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.login-btn, .logout-btn {
+    padding: 8px 20px;
+    border-radius: var(--border-radius-sm);
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    border: none;
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* === INDEX.HTML: Hero Section Layout (Specific to the Landing Page) === */
+.hero-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 50px;
+}
+
+.hero-text {
+    flex-basis: 55%;
+}
+
+.dashboard-title { /* Used for both Landing Page and Dashboard titles */
+    font-size: 50px; /* Large on Landing Page */
+    font-weight: 700;
+    color: var(--primary-color); 
+    margin-bottom: 15px;
+}
+
+/* Override title size for dashboards where it's smaller */
+.main-content-dashboard + .dashboard-title { 
+    font-size: 42px; 
+}
+
+.subtitle {
+    font-size: 18px;
+    color: var(--text-light);
+    max-width: 500px;
+    margin-bottom: 30px;
+}
+
+.get-started-btn {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 12px 30px; 
+    border-radius: var(--border-radius-sm);
+    font-size: 18px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+}
+
+/* INDEX.HTML: Feature Cards Layout */
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 30px;
+    
+}
+
+/* === DASHBOARD.HTML: Main Content Layout === */
+.main-content-dashboard { 
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+.dashboard-grid { /* Used for the 2x2 grid on the dashboards */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 30px;
+    flex-grow: 1; 
+    max-width: 550px; 
+}
+
+
+/* === Shared Card Styling (Used on all pages) === */
+.dashboard-card {
+    background-color: var(--background-color); /* Pure white background for cards */
+    padding: 30px 15px;
+    border-radius: var(--border-radius-lg); 
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 150px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    text-decoration: none; /* For links */
+    color: inherit;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card-icon {
+    font-size: 40px;
+    color: var(--primary-color); 
+    margin-bottom: 15px;
+}
+
+.card-text {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+/* === Illustration Area (Shared between Landing and Dashboards) === */
+.illustration-area {
+    flex-basis: 40%; 
+    max-width: 400px; 
+    min-height: 300px;
+    position: relative;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+}
+
+.illustration-area img {
+    max-width: 100%;
+    height: auto;
+    position: relative;
+    z-index: 10;
+}
+.feature-card {
+    background-color: var(--background-color); /* Cards are pure white */
+    padding: 30px 15px;
+    border-radius: var(--border-radius-lg); 
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05); /* Soft inner shadow for depth */
+}
+
+.feature-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card-icon {
+    font-size: 40px; 
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.card-text {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-dark);
+}
