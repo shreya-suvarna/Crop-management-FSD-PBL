@@ -1,0 +1,47 @@
+@import url('welcome_page.css');
+
+.dashboard-title {
+    text-align: center;
+    margin-top: 50px;
+    color: var(--primary-color);
+    font-size: 42px;
+}
+
+p {
+    text-align: center;
+    color: var(--text-light);
+    font-size: 18px;
+    margin-bottom: 50px;
+}
+
+.dashboard-card {
+    background-color: var(--background-color);
+    padding: 30px 15px;
+    border-radius: var(--border-radius-lg);
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card-icon {
+    font-size: 60px;
+    color: var(--primary-color);
+}
+
+.card-text {
+    font-size: 24px;
+    margin-top: 20px;
+    font-weight: 600;
+    color: var(--text-dark);
+}
