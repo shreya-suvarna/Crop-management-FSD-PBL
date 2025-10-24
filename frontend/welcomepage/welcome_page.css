@@ -144,6 +144,6 @@ body {
 
 /* Illustration */
 .illustration-area img {
-    max-width: 80%;
+    max-width: 100%;
     height: auto;
 }

@@ -7,30 +7,46 @@
     margin-bottom: 30px;
     text-align: left;
 }
+.dashboard-container {
+    width: 100%;           /* take full width of the page */
+    max-width: 1900px;     /* optional: limit max width */
+    margin: 0 auto;        /* center it on the page */
+    padding: 20px;  
+    min-height: 90vh;        /* add some inner space */
+}
 
 /* Dashboard layout */
 .main-content-dashboard {
     display: flex;
-    gap: 40px;
+    gap: 20px;
     align-items: flex-start;
+    width:100%;
 }
 
 .dashboard-grid {
+
+    flex: 2;              /* grid takes 2 parts */
+    min-width: 400px;     /* grid won’t shrink below 400px */
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 30px;
-    flex-grow: 1;
-    max-width: 700px;
+    height:400px;
 }
 
 .dashboard-card {
-    background-color: var(--background-color);
-    padding: 30px 15px;
+    
+    display: flex;              /* enable flexbox */
+    flex-direction: column;     /* stack children vertically */
+    align-items: center;        /* center horizontally */
+    justify-content: center;    /* center vertically inside card */
+    padding: 20px;              /* adjust padding as needed */
     border-radius: var(--border-radius-lg);
-    text-align: center;
+    background-color: var(--background-color);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-    transition: transform 0.2s, box-shadow 0.2s;
     cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    font-size: 16px;            /* default text size */
+
 }
 
 .dashboard-card:hover {
@@ -46,20 +62,26 @@
     font-weight: 600;
     text-decoration: none;
 }
-.card-icon {
+.dashboard-card .card-icon {
     font-size: 40px;
     color: var(--primary-color);
-    margin-bottom: 15px;
+    margin-bottom: 10px;       /* space between icon and text */
 }
-
-.card-text {
-    font-size: 16px;
+.dashboard-card.card-text {
+    font-size: 30px;
     font-weight: 600;
     color: var(--text-dark);
+    text-align: center;
 }
 
 /* Illustration */
 .illustration-area img {
-    max-width: 60%;
+    max-width: 100%;
     height: auto;
 }
+.illustration-area {
+         flex: 1;              /* image takes 1 part */
+    min-width: 600px;     /* optional limit on image size */
+    text-align: right;
+}
+
