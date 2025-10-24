@@ -1,4 +1,4 @@
-@import url('welcome_page.css');
+@import url('../welcomepage/welcome_page.css');
 
 .dashboard-title {
     font-size: 42px;
@@ -8,7 +8,7 @@
     text-align: left;
 }
 
-/* Dashboard layout */
+/* Dashboard Layout */
 .main-content-dashboard {
     display: flex;
     gap: 40px;
@@ -28,9 +28,8 @@
     padding: 30px 15px;
     border-radius: var(--border-radius-lg);
     text-align: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
     transition: transform 0.2s, box-shadow 0.2s;
-    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
 .dashboard-card:hover {
@@ -49,9 +48,16 @@
     font-weight: 600;
     color: var(--text-dark);
 }
-
+.logout-btn {
+    padding: 8px 20px;
+    border-radius: var(--border-radius-sm);
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: 600;
+    text-decoration: none;
+}
 /* Illustration */
 .illustration-area img {
-    max-width: 60%;
+    max-width: 40%;
     height: auto;
 }

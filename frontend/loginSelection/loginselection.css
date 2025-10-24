@@ -1,4 +1,4 @@
-@import url('welcome_page.css');
+@import url('../welcomepage/welcome_page.css');
 
 .dashboard-title {
     text-align: center;

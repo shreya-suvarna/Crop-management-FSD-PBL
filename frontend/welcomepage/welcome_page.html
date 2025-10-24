@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Green Kisan</title>
+    <link rel="stylesheet" href="welcome_page.css">
+</head>
+<body>
+
+    <div class="dashboard-container">
+        
+        <header class="header">
+            <div class="logo-container">
+                🌱 Green Kisan
+            </div>
+            <nav class="nav-links">
+                <a href="../welcomepage/welcome_page.html" class="nav-link" data-translate="home">Home</a>
+                <a href="#" class="nav-link" data-translate="dashboardTitle">My Dashboard</a>
+                <a href="#" class="nav-link" data-translate="aboutUs">About Us</a>
+                <a href="#" class="nav-link" data-translate="alerts">Alerts</a>
+                <a href="#" class="nav-link" data-translate="settings">Settings</a>
+            </nav>
+            <div class="auth-controls">
+                <div class="lang-dropdown">
+                    <select id="languageSelector">
+                        <option value="en">English</option>
+                        <option value="kn">ಕನ್ನಡ</option>
+                    </select>
+                </div>
+                <a href="../loginSelection/loginselection.html" class="login-btn" data-translate="login">Login</a>
+            </div>
+        </header>
+
+        <div class="hero-section">
+            <div class="hero-text">
+                <h1 data-translate="title" class="dashboard-title">Welcome to Green Kisan</h1>
+                <p class="subtitle" data-translate="subtitle">
+                    A platform connecting farmers with industries for sustainable crop residue management
+                </p>
+                <a href="loginselection.html" class="get-started-btn" data-translate="getStarted">Get Started</a>
+            </div>
+
+            <div class="illustration-area">
+                <img src="../images/farmer_illustration.png" alt="Farmer holding crop residue, wearing an orange turban">
+            </div>
+        </div>
+
+    </div>
+
+    <script src="weltranslate.js"></script>
+</body>
+</html>

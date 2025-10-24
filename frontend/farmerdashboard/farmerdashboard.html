@@ -13,15 +13,20 @@
         <header class="header">
             <div class="logo-container">🌱 Green Kisan</div>
             <nav class="nav-links">
-                <a href="welcome_page.html" class="nav-link">Home</a>
+                <a href="../welcomepage/welcome_page.html" class="nav-link">Home</a>
                 <a href="#" class="nav-link" style="color: var(--primary-color);">My Dashboard</a>
                 <a href="#" class="nav-link">Alerts</a>
                 <a href="#" class="nav-link">Payments</a>
                 <a href="#" class="nav-link">Settings</a>
             </nav>
             <div class="auth-controls">
-                <div class="lang-dropdown" style="color: var(--text-light);">English ⌵</div>
-                <a href="loginselection.html" class="logout-btn">Logout</a> 
+                <div class="lang-dropdown" style="color: var(--text-light);">
+                    <select  id="languageSelector">
+                        <option value="English">English</option>
+                        <option value="Kannada">Kannada</option>
+                    </select>
+                </div>
+                <a href="../loginSelection/loginselection.html" class="logout-btn">Logout</a> 
             </div>
         </header>
 
@@ -36,7 +41,7 @@
             </div>
 
             <div class="illustration-area">
-                <img src="farmer_illustration.png" alt="Farmer holding crop residue, wearing an orange turban">
+                <img src="../images/farmer_illustration.png" alt="Farmer holding crop residue, wearing an orange turban">
             </div>
         </div>
     </div>
