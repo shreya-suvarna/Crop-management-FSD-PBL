@@ -67,8 +67,8 @@
     color: var(--primary-color);
     margin-bottom: 10px;       /* space between icon and text */
 }
-.dashboard-card.card-text {
-    font-size: 30px;
+.dashboard-card .card-text {
+    font-size: 18px;
     font-weight: 600;
     color: var(--text-dark);
     text-align: center;
