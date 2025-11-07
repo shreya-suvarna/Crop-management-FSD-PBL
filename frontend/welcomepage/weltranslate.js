@@ -146,6 +146,7 @@ document.addEventListener("DOMContentLoaded", () => {
     govtSchemes: "Govt Schemes",
     myDashboard: "My Dashboard",
     contact: "Contact",
+    govSchemes: "Government Schemes",
     },
     kn: {
       home: "ಮುಖಪುಟ",
@@ -175,7 +176,8 @@ document.addEventListener("DOMContentLoaded", () => {
     logout: "ಲಾಗ್ ಔಟ್",
     govtSchemes: "ಸರ್ಕಾರಿ ಯೋಜನೆಗಳು",
     myDashboard: "ನನ್ನ ಡ್ಯಾಶ್‌ಬೋರ್ಡ್",
-    contact: "ಸಂಪರ್ಕ"
+    contact: "ಸಂಪರ್ಕ",
+    govSchemes: "ಸರ್ಕಾರದ ಯೋಜನೆಗಳು"
 
     },
   };
