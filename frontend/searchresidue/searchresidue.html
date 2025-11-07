@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Search Crop Residue - Green Kisan</title>
+<link rel="stylesheet" href="searchresidue.css">
+</head>
+<body>
+
+<div class="search-container">
+  <h1>Search Crop Residue</h1>
+
+  <!-- Search Form -->
+  <div class="search-form">
+    <select id="cropSelect">
+      <option value="">Select Crop</option>
+      <option value="Paddy">Paddy</option>
+      <option value="Wheat">Wheat</option>
+      <option value="Rice">Rice</option>
+      <option value="Maize">Maize</option>
+      <option value="Coconut">Coconut</option>
+      <option value="Arecanut">Arecanut</option>
+      <option value="Other">Other</option>
+    </select>
+
+    <select id="residueSelect">
+      <option value="">Select Residue Type</option>
+      <option value="Shell">Shell</option>
+      <option value="Husk">Husk</option>
+      <option value="Leaf">Leaf</option>
+      <option value="Straw">Straw</option>
+      <option value="Other">Other</option>
+    </select>
+
+    <input type="text" id="locationInput" placeholder="Location (Village/Town)">
+    <input type="number" id="quantityInput" placeholder="Min Quantity (kg)">
+    <button id="searchBtn">Search</button>
+  </div>
+
+  <div id="results" class="results-grid"></div>
+</div>
+
+<script>
+const resultsDiv = document.getElementById('results');
+
+function loadResidues(residues = null) {
+  const data = residues || JSON.parse(localStorage.getItem("cropResidues") || "[]");
+
+  if (!data.length) {
+    resultsDiv.innerHTML = "<p class='no-results'>No crop residues available.</p>";
+    return;
+  }
+
+  resultsDiv.innerHTML = data.map(item => `
+    <div class="residue-card">
+      <div class="residue-images">
+        ${item.images.map(img => `<img src="${img}" alt="Crop Image">`).join('')}
+      </div>
+      <div class="residue-info">
+        <p><strong>Crop:</strong> ${item.cropName}</p>
+        <p><strong>Residue Type:</strong> ${item.residueType}</p>
+        <p><strong>Quantity:</strong> ${item.quantity} kg</p>
+        <p><strong>Location:</strong> ${item.location}</p>
+        <p><strong>Uploader:</strong> ${item.uploaderName || 'Anonymous'}</p>
+        <p><strong>Contact:</strong> ${item.uploaderContact || 'Not Provided'}</p>
+      </div>
+    </div>
+  `).join('');
+}
+
+// Initial load
+loadResidues();
+
+document.getElementById("searchBtn").addEventListener("click", () => {
+  const cropValue = document.getElementById("cropSelect").value;
+  const residueValue = document.getElementById("residueSelect").value;
+  const locationValue = document.getElementById("locationInput").value.toLowerCase();
+  const minQuantityInput = document.getElementById("quantityInput").value;
+  const minQuantity = minQuantityInput ? parseFloat(minQuantityInput) : 0;
+
+  const residues = JSON.parse(localStorage.getItem("cropResidues") || "[]");
+
+  const filtered = residues.filter(item => {
+    const cropMatch = cropValue ? item.cropName === cropValue : true;
+    const residueMatch = residueValue ? item.residueType === residueValue : true;
+    const locationMatch = locationValue ? item.location.toLowerCase().includes(locationValue) : true;
+    
+    // Ensure stored quantity is number
+    const itemQuantity = parseFloat(item.quantity);
+    const quantityMatch = minQuantity ? itemQuantity >= minQuantity : true;
+
+    return cropMatch && residueMatch && locationMatch && quantityMatch;
+  });
+
+  if (!filtered.length) {
+    resultsDiv.innerHTML = "<p class='no-results'>No matching crop residues found.</p>";
+    return;
+  }
+
+  loadResidues(filtered);
+});
+</script>
+
+</body>
+</html>
