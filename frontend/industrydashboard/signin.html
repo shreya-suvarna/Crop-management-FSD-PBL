@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Industry Sign In - Green Kisan</title>
+    <link rel="stylesheet" href="../../css/auth.css">
+</head>
+<body>
+    <div class="auth-container">
+        <header class="auth-header">
+            <div class="logo-container">🌱 Green Kisan</div>
+            <nav class="nav-links">
+                <a href="../../welcomepage/welcome_page.html" class="nav-link">Home</a>
+                <a href="../../loginSelection/loginselection.html" class="nav-link">Back to Login</a>
+            </nav>
+        </header>
+
+        <main class="auth-main">
+            <div class="auth-card">
+                <div class="auth-header-section">
+                    <span class="auth-icon">🏭</span>
+                    <h1>Industry Sign In</h1>
+                    <p>to continue to Green Kisan Industry Portal</p>
+                </div>
+                
+                <form class="auth-form" id="industrySignInForm">
+                    <div class="form-group">
+                        <label>Email or phone</label>
+                        <input type="text" class="form-input" id="industryEmail" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" class="form-input" id="industryPassword" required>
+                    </div>
+
+                    <div class="forgot-password">
+                        <a href="#" class="forgot-link">Forgot password?</a>
+                    </div>
+                    
+                    <button type="submit" class="auth-btn">Next</button>
+                </form>
+                
+                <div class="divider">
+                    <span class="divider-text">or</span>
+                </div>
+                
+                <div class="auth-links">
+                    <p>Don't have an account? <a href="signup.html" class="auth-link">Sign up</a></p>
+                    <a href="../../loginSelection/loginselection.html" class="back-link">← Back to Login Selection</a>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../../js/auth.js"></script>
+    
+    <!-- SIMPLE REDIRECT SCRIPT FOR INDUSTRY -->
+    <script>
+        document.getElementById('industrySignInForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('industryEmail').value;
+            const password = document.getElementById('industryPassword').value;
+            
+            // Simple check - if fields are not empty, go to industry dashboard
+            if (email && password) {
+                window.location.href = 'industrydashboard.html';
+            } else {
+                alert('Please enter email and password');
+            }
+        });
+    </script>
+</body>
+</html>

@@ -4,24 +4,162 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Green Kisan</title>
-    <link rel="stylesheet" href="loginselection.css">
+    <style>
+        :root {
+            --primary-color: #38761D;
+            --secondary-color: #f7fcf6;
+            --text-dark: #222222;
+            --text-light: #555555;
+            --body-frame-color: #f5f5f0;
+            --background-color: #ffffff;
+            --border-radius-lg: 12px;
+            --border-radius-sm: 6px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: var(--body-frame-color);
+            color: var(--text-dark);
+            line-height: 1.6;
+            padding: 30px;
+        }
+
+        .dashboard-container {
+            padding: 50px;
+            max-width: 1300px;
+            margin: 0 auto;
+            background-color: var(--body-frame-color);
+            border-radius: var(--border-radius-lg);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            min-height: 80vh;
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 30px;
+        }
+
+        .logo-container {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            margin-left: 50px;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        .auth-controls {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .lang-dropdown select {
+            padding: 6px 12px;
+            border-radius: var(--border-radius-sm);
+            border: 1px solid #ddd;
+            background-color: white;
+            color: var(--text-light);
+        }
+
+        /* Main Content */
+        .dashboard-title {
+            text-align: center;
+            margin-top: 50px;
+            color: var(--primary-color);
+            font-size: 42px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: var(--text-light);
+            font-size: 18px;
+            margin-bottom: 50px;
+        }
+
+        .login-cards {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            padding: 20px;
+        }
+
+        .login-card {
+            background-color: var(--background-color);
+            padding: 40px 30px;
+            border-radius: var(--border-radius-lg);
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 300px;
+            border: 2px solid transparent;
+        }
+
+        .login-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            border-color: var(--primary-color);
+        }
+
+        .card-icon {
+            font-size: 60px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .card-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+        }
+
+        .card-description {
+            color: var(--text-light);
+            font-size: 16px;
+        }
+    </style>
 </head>
 <body>
 
-    <div class="dashboard-container" style="min-height: 80vh;"> 
+    <div class="dashboard-container">
         
         <header class="header">
             <div class="logo-container">
                 🌱 Green Kisan
             </div>
             <nav class="nav-links">
-                <a href="../welcomepage/welcome_page.html" class="nav-link" data-translate="home">Home</a>
-                <a href="#" class="nav-link" data-translate="aboutUs">About Us</a>
-                <a href="#" class="nav-link" data-translate="contact">Contact</a>
+                <a href="../welcomepage/welcome_page.html" class="nav-link" data-en="Home" data-kn="ಮುಖಪುಟ">Home</a>
+                <a href="#" class="nav-link" data-en="About Us" data-kn="ನಮ್ಮ ಬಗ್ಗೆ">About Us</a>
+                <a href="#" class="nav-link" data-en="Contact" data-kn="ಸಂಪರ್ಕ">Contact</a>
             </nav>
             <div class="auth-controls">
-                <div class="lang-dropdown" style="color: var(--text-light);">
-                    <select  id="languageSelector">
+                <div class="lang-dropdown">
+                    <select id="languageSelector">
                         <option value="en">English</option>
                         <option value="kn">ಕನ್ನಡ</option>
                     </select>
@@ -29,28 +167,53 @@
             </div>
         </header>
 
-        <h1 class="dashboard-title" data-translate="chooseLogin">Choose Your Login Type</h1>
-        <p data-translate="subtitle">Please select whether you are a Farmer or an Industry representative.</p>
+        <h1 class="dashboard-title" data-en="Choose Your Login Type" data-kn="ನಿಮ್ಮ ಲಾಗಿನ್ ಪ್ರಕಾರವನ್ನು ಆರಿಸಿ">Choose Your Login Type</h1>
+        <p class="subtitle" data-en="Please select whether you are a Farmer or an Industry representative." data-kn="ದಯವಿಟ್ಟು ನೀವು ರೈತರೇ ಅಥವಾ ಉದ್ಯಮ ಪ್ರತಿನಿಧಿಯೇ ಎಂಬುದನ್ನು ಆರಿಸಿ.">Please select whether you are a Farmer or an Industry representative.</p>
 
-        <div style="display: flex; justify-content: center; gap: 50px; padding: 20px;">
+        <div class="login-cards">
             
-            <a href="../farmerdashboard/farmerdashboard.html" class="dashboard-card" style="width: 300px;">
+            <a href="../farmerdashboard/signin.html" class="login-card">
                 <span class="card-icon">🧑‍🌾</span> 
-                <span class="card-text" data-translate="farmerLogin">Farmer Login</span>
-                <p style="color: var(--text-light); margin-top: 10px; font-size: 16px;" data-translate="uploadResidue">Upload crop residue for sale.</p>
+                <span class="card-title" data-en="Farmer Login" data-kn="ರೈತ ಲಾಗಿನ್">Farmer Login</span>
+                <p class="card-description" data-en="Upload crop residue for sale." data-kn="ಮಾರಾಟಕ್ಕಾಗಿ ಬೆಳೆ ಶೇಷವನ್ನು ಅಪ್ಲೋಡ್ ಮಾಡಿ.">Upload crop residue for sale.</p>
             </a>
             
-            <a href="../industrydashboard/industrydashboard.html" class="dashboard-card" style="width: 300px;">
+            <a href="../industrydashboard/signin.html" class="login-card">
                 <span class="card-icon">🏭</span> 
-                <span class="card-text" data-translate="industryLogin">Industry Login</span>
-                <p style="color: var(--text-light); margin-top: 10px; font-size: 16px;" data-translate="buyResidue">Purchase crop residue.</p>
+                <span class="card-title" data-en="Industry Login" data-kn="ಉದ್ಯಮ ಲಾಗಿನ್">Industry Login</span>
+                <p class="card-description" data-en="Purchase crop residue." data-kn="ಬೆಳೆ ಶೇಷವನ್ನು ಖರೀದಿಸಿ.">Purchase crop residue.</p>
             </a>
         </div>
         
     </div>
 
-    <script src="../welcomepage/weltranslate.js"></script>
-
-
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const languageSelector = document.getElementById('languageSelector');
+            
+            // Check for saved language preference or default to English
+            const savedLanguage = localStorage.getItem('preferredLanguage') || 'en';
+            languageSelector.value = savedLanguage;
+            updateLanguage(savedLanguage);
+            
+            // Add event listener for language change
+            languageSelector.addEventListener('change', function() {
+                const selectedLanguage = this.value;
+                localStorage.setItem('preferredLanguage', selectedLanguage);
+                updateLanguage(selectedLanguage);
+            });
+            
+            function updateLanguage(language) {
+                // Update all elements with data attributes for translation
+                document.querySelectorAll('[data-en]').forEach(element => {
+                    if (language === 'kn' && element.dataset.kn) {
+                        element.textContent = element.dataset.kn;
+                    } else {
+                        element.textContent = element.dataset.en;
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html>
