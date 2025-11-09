@@ -5,228 +5,203 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Industry Sign Up - Green Kisan</title>
     <style>
-        * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        /* === Compact Centered Auth Page (No Scroll) === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+html, body {
+  height: 100%;
+  overflow: hidden; /* prevent any scroll */
+}
+
+/* Body Layout */
 body {
-    background: linear-gradient(135deg, #e3f2fd, #bbdefb);
-    color: #333;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+  background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+  color: #333;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Header */
 .auth-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.7rem 1.5rem;
-    background-color: #fff;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  flex-shrink: 0;
 }
 
 .logo-container {
-    font-size: 1.4rem;
-    font-weight: bold;
-    color: #1565c0;
-    display: flex;
-    align-items: center;
-    gap: 6px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #1565c0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
 .nav-links {
-    display: flex;
-    gap: 1rem;
+  display: flex;
+  gap: 0.8rem;
 }
 
 .nav-link {
-    text-decoration: none;
-    color: #1565c0;
-    font-weight: 500;
-    padding: 0.4rem 0.8rem;
-    border-radius: 4px;
-    transition: all 0.3s;
+  text-decoration: none;
+  color: #1565c0;
+  font-weight: 500;
+  font-size: 0.9rem;
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
 }
 
 .nav-link:hover {
-    background-color: #e3f2fd;
+  background-color: #e3f2fd;
 }
 
-/* Main Auth Section */
+/* Main */
 .auth-main {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 60px - 50px); /* fit between header & footer */
+  overflow: hidden;
 }
 
+/* Auth Card */
 .auth-card {
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-    padding: 1.8rem;
-    width: 100%;
-    max-width: 380px;
-    transition: transform 0.3s;
-}
-
-.auth-card:hover {
-    transform: translateY(-4px);
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+  padding: 1.1rem;
+  width: 100%;
+  max-width: 360px;
+  transform: translateY(-10px);
 }
 
 .auth-header-section {
-    text-align: center;
-    margin-bottom: 1.2rem;
+  text-align: center;
+  margin-bottom: 0.7rem;
 }
 
 .auth-icon {
-    font-size: 2.5rem;
-    display: block;
-    margin-bottom: 0.5rem;
+  font-size: 2.1rem;
+  display: block;
+  margin-bottom: 0.4rem;
 }
 
 .auth-header-section h1 {
-    font-size: 1.4rem;
-    margin-bottom: 0.4rem;
-    color: #1565c0;
+  font-size: 1.1rem;
+  margin-bottom: 0.2rem;
+  color: #1565c0;
 }
 
 .auth-header-section p {
-    color: #666;
-    font-size: 0.9rem;
+  color: #666;
+  font-size: 0.8rem;
 }
 
 /* Form */
 .form-group {
-    margin-bottom: 0.9rem;
+  margin-bottom: 0.55rem;
 }
 
 .form-group label {
-    display: block;
-    margin-bottom: 0.4rem;
-    font-weight: 500;
-    color: #555;
-    font-size: 0.9rem;
+  display: block;
+  margin-bottom: 0.25rem;
+  font-weight: 500;
+  color: #555;
+  font-size: 0.8rem;
 }
 
 .form-input {
-    width: 100%;
-    padding: 0.6rem;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 0.9rem;
-    transition: border-color 0.3s;
+  width: 100%;
+  padding: 0.45rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 0.8rem;
 }
 
 .form-input:focus {
-    outline: none;
-    border-color: #1565c0;
-    box-shadow: 0 0 0 2px rgba(21, 101, 192, 0.15);
+  outline: none;
+  border-color: #1565c0;
+  box-shadow: 0 0 0 2px rgba(21,101,192,0.1);
 }
 
-/* Password strength bar */
-.password-strength {
-    margin-top: 0.3rem;
-    height: 3px;
-    background-color: #eee;
-    border-radius: 2px;
-    overflow: hidden;
-}
-
-.password-strength-bar {
-    height: 100%;
-    width: 0%;
-    background-color: #f44336;
-    transition: all 0.3s;
-}
-
-/* Buttons and links */
+/* Button */
 .auth-btn {
-    width: 100%;
-    padding: 0.7rem;
-    background-color: #1565c0;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    font-size: 0.95rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    margin-bottom: 0.8rem;
+  width: 100%;
+  padding: 0.55rem;
+  background-color: #1565c0;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 0.4rem;
 }
 
 .auth-btn:hover {
-    background-color: #0d47a1;
+  background-color: #0d47a1;
 }
 
+/* Links */
 .auth-links {
-    text-align: center;
+  text-align: center;
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
 }
 
-.auth-links p {
-    margin-bottom: 0.5rem;
-    font-size: 0.9rem;
+.auth-links a {
+  color: #1565c0;
+  text-decoration: none;
 }
 
-.auth-link {
-    color: #1565c0;
-    text-decoration: none;
-    font-weight: 500;
-}
-
-.auth-link:hover {
-    text-decoration: underline;
+.auth-links a:hover {
+  text-decoration: underline;
 }
 
 .back-link {
-    color: #666;
-    text-decoration: none;
-    font-size: 0.85rem;
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
+  color: #666;
+  text-decoration: none;
+  font-size: 0.75rem;
 }
 
 .back-link:hover {
-    color: #1565c0;
+  color: #1565c0;
 }
 
 /* Footer */
 footer {
-    text-align: center;
-    padding: 1rem;
-    background-color: #1565c0;
-    color: white;
-    font-size: 0.9rem;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1565c0;
+  color: white;
+  font-size: 0.85rem;
+  flex-shrink: 0;
 }
 
-/* Mobile Responsive */
-@media (max-width: 768px) {
-    .auth-header {
-        flex-direction: column;
-        gap: 0.5rem;
-        padding: 0.8rem;
-    }
-    
-    .auth-card {
-        padding: 1.2rem;
-        max-width: 320px;
-    }
-
-    .auth-header-section h1 {
-        font-size: 1.2rem;
-    }
-
-    .form-input {
-        padding: 0.5rem;
-    }
+/* Small screens (scroll allowed) */
+@media (max-height: 650px) {
+  html, body {
+    overflow: auto;
+  }
+  .auth-main {
+    height: auto;
+    padding: 1rem 0;
+  }
 }
+
     </style>
 </head>
 <body>
